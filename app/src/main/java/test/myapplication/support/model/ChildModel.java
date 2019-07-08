@@ -1,9 +1,9 @@
-package test.myapplication;
+package test.myapplication.support.model;
 
-public class ParentModel {
+public class ChildModel {
     private String title;
 
-    public ParentModel(String title) {
+    public ChildModel(String title) {
         this.title = title;
     }
 
@@ -14,4 +14,5 @@ public class ParentModel {
     public void setTitle(String title) {
         this.title = title;
     }
+
 }

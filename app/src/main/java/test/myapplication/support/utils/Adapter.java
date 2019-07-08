@@ -1,4 +1,4 @@
-package test.myapplication;
+package test.myapplication.support.utils;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -14,7 +14,7 @@ public abstract class Adapter<DataClass, ViewHolder extends RecyclerView.ViewHol
     private Class<ViewHolder> viewHolderClass;
     private List<DataClass> data;
 
-    Adapter(int mLayout, Class<ViewHolder> viewHolderClass, List<DataClass> data) {
+    public Adapter(int mLayout, Class<ViewHolder> viewHolderClass, List<DataClass> data) {
         this.mLayout = mLayout;
         this.viewHolderClass = viewHolderClass;
         this.data = data;
@@ -43,7 +43,7 @@ public abstract class Adapter<DataClass, ViewHolder extends RecyclerView.ViewHol
         return data.size();
     }
 
-    abstract void bindView(ViewHolder holder, DataClass model, int pos);
+    public abstract void bindView(ViewHolder holder, DataClass model, int pos);
 
     private DataClass getItem(int pos) {
         return data.get(pos);

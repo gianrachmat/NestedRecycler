@@ -1,4 +1,4 @@
-package test.myapplication;
+package test.myapplication.ui.viewholder;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,14 +10,19 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import test.myapplication.R;
+import test.myapplication.support.model.ChildModel;
+import test.myapplication.support.model.ParentModel;
+import test.myapplication.support.utils.Adapter;
+
 public class ParentViewHolder extends RecyclerView.ViewHolder {
-    private ArrayList<ChildItem> dataChild = new ArrayList<>();
+    private ArrayList<ChildModel> dataChild = new ArrayList<>();
     private TextView txt_title;
     private RecyclerView rv_child;
-    private Adapter<ChildItem, ChildViewHolder> adapter = new Adapter<ChildItem, ChildViewHolder>
+    private Adapter<ChildModel, ChildViewHolder> adapter = new Adapter<ChildModel, ChildViewHolder>
             (R.layout.item_child, ChildViewHolder.class, dataChild) {
         @Override
-        void bindView(ChildViewHolder holder, final ChildItem model, int pos) {
+        public void bindView(ChildViewHolder holder, final ChildModel model, int pos) {
             final Context ctx = holder.itemView.getContext();
             holder.onBind(ctx, model);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +39,7 @@ public class ParentViewHolder extends RecyclerView.ViewHolder {
         txt_title = itemView.findViewById(R.id.txt_title);
         rv_child = itemView.findViewById(R.id.rv_child);
         for (int i = 1; i <= 5; i++) {
-            dataChild.add(new ChildItem("Child " + i));
+            dataChild.add(new ChildModel("Child " + i));
         }
     }
 
